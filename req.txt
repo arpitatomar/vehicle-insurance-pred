@@ -3,7 +3,9 @@ numpy
 seaborn
 from-root
 scikit-learn
+imbalanced-learn
 xgboost
 catboost
 lightgbm
 matplotlib
+flask

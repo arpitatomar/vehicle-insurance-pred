@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Prediction</title>
+</head>
+<body>
+    <main>
+        <h1>Vehicle Insurance Prediction</h1>
+        <p>Enter the vehicle and customer details to predict insurance interest.</p>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender" required>
+                <option value="" selected disabled>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="Age">Age</label>
+            <input id="Age" name="Age" type="number" min="18" max="100" required>
+
+            <label for="Driving_License">Driving License</label>
+            <select id="Driving_License" name="Driving_License" required>
+                <option value="" selected disabled>Select an option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="Region_Code">Region Code</label>
+            <input id="Region_Code" name="Region_Code" type="number" min="0" step="any" required>
+
+            <label for="Previously_Insured">Previously Insured</label>
+            <select id="Previously_Insured" name="Previously_Insured" required>
+                <option value="" selected disabled>Select an option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="Vehicle_Age">Vehicle Age</label>
+            <select id="Vehicle_Age" name="Vehicle_Age" required>
+                <option value="" selected disabled>Select vehicle age</option>
+                <option value="&lt; 1 Year">&lt; 1 Year</option>
+                <option value="1-2 Year">1-2 Year</option>
+                <option value="&gt; 2 Years">&gt; 2 Years</option>
+            </select>
+
+            <label for="Vehicle_Damage">Vehicle Damage</label>
+            <select id="Vehicle_Damage" name="Vehicle_Damage" required>
+                <option value="" selected disabled>Select an option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="Annual_Premium">Annual Premium</label>
+            <input id="Annual_Premium" name="Annual_Premium" type="number" min="0" step="0.01" required>
+
+            <label for="Policy_Sales_Channel">Policy Sales Channel</label>
+            <input id="Policy_Sales_Channel" name="Policy_Sales_Channel" type="number" min="0" step="any" required>
+
+            <label for="Vintage">Vintage (days)</label>
+            <input id="Vintage" name="Vintage" type="number" min="0" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if results is defined %}
+            <h2>Prediction: {{ results }}</h2>
+        {% endif %}
+    </main>
+</body>
+</html>

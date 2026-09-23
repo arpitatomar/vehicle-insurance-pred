@@ -20,6 +20,12 @@ setup( name = 'vehicle-insurance-pred',
        author = 'Arpita',
        author_email = 'arpitatomar45@gmail.com',
        packages = find_packages(),#connect all init files
+       python_requires='>=3.11',
+       classifiers=[
+           'Programming Language :: Python :: 3',
+           'Programming Language :: Python :: 3.11',
+           'Programming Language :: Python :: 3.12',
+       ],
        install_requires = get_requirements('req.txt')
 
  )
